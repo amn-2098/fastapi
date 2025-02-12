@@ -14,7 +14,7 @@ def create(request, db: Session):
     new_blog = models.Blog(title=request.title, body=request.body, user_id=1)  # user_id is hardcoded for now
     db.add(new_blog)
     db.commit()
-    db.refresh(new_blog)
+    db.refresh(new_blog) 
     return schemas.showBlog(title=new_blog.title, content=new_blog.body)  # Return Pydantic model
 
 # Function to delete a blog by ID
